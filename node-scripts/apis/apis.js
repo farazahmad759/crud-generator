@@ -3,7 +3,7 @@ const buildContent = (params) => {
   let { jsonData } = params;
   let c_imports = `
   import nextConnect from 'next-connect';
-  import { knex } from '../../../../knexfile';
+  import { knex } from '../../../knexfile';
   const handler = nextConnect();`;
   let c_post = `handler.post(async (req, res) => {
     let data = req.body;

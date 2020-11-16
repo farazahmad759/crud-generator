@@ -8,7 +8,8 @@ dvFunctions.createFile({
   name: 'users',
   type: 'migration',
   dir: 'db/migrations/',
-  preName: new Date().getTime() + '_create_table',
+  timeStamp: new Date().getTime(),
+  preName: 'create_table',
   postName: '',
   content: usersMigration,
 });

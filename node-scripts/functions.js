@@ -4,7 +4,16 @@ import dvCrudConfig from './../dvcrud.config.js';
  * createFile(object)
  */
 const createFile = (params) => {
-  let { name, type, content, dir, preName, postName, extension } = params;
+  let {
+    name,
+    type,
+    content,
+    dir,
+    timeStamp,
+    preName,
+    postName,
+    extension,
+  } = params;
   if (!name) {
     console.error('params.name is required');
     return false;
@@ -18,6 +27,9 @@ const createFile = (params) => {
   }
   if (!dir) {
     dir = 'db/';
+  }
+  if (!timeStamp) {
+    timeStamp = '';
   }
   if (!preName) {
     preName = '';
@@ -42,7 +54,7 @@ const createFile = (params) => {
     fs.mkdirSync(dir);
   }
   let formattedName = '';
-  formattedName += preName + '_' + name + '_' + postName;
+  formattedName += timeStamp + '_' + preName + '_' + name + '_' + postName;
   formattedName = formattedName.replace('__', '_');
   formattedName = formattedName.replace('__', '_');
   formattedName = formattedName.replace('__', '_');
