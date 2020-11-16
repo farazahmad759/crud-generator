@@ -37,6 +37,21 @@ const dvCreateFile = (params) => {
   });
 };
 
-let dvFunctions = { dvCreateFile: dvCreateFile };
+/**
+ * dvReadJsonFromFile
+ */
+const dvReadSchemaFile = (params) => {
+  let { name, dir } = params;
+  if (!name) {
+    return false;
+  }
+  if (!dir) {
+    dir = 'db/schemas/';
+  }
+  let rawdata = fs.readFileSync(file);
+  let jsonData = JSON.parse(rawdata);
+  return jsonData;
+};
+let dvFunctions = { dvCreateFile, dvReadSchemaFile };
 
 export default dvFunctions;
