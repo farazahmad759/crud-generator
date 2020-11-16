@@ -1,4 +1,3 @@
-import { generateFile, generateContent } from './migration-functions.js';
 import fs from 'fs';
 import dvFunctions from './functions.js';
 import dvMigrations from './migrations/migrations.js';
@@ -13,15 +12,15 @@ dvFunctions.createFile({
   postName: '',
   content: usersMigration,
 });
-let userApi = dvApis.buildContent({ jsonData: usersJson });
-dvFunctions.createFile({
-  name: 'index',
-  type: 'api',
-  dir: 'db/controllers/',
-  preName: '',
-  postName: '',
-  content: userApi,
-});
+// let userApi = dvApis.buildContent({ jsonData: usersJson });
+// dvFunctions.createFile({
+//   name: 'index',
+//   type: 'api',
+//   dir: 'db/controllers/',
+//   preName: '',
+//   postName: '',
+//   content: userApi,
+// });
 
 /**
  *

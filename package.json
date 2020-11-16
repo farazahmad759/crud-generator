@@ -2,13 +2,16 @@
   "name": "crud-generator",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "mig-up": "knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up",
+    "mig-down": "knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down"
   },
   "dependencies": {
+    "knex": "^0.21.12",
+    "mysql2": "^2.2.5",
     "next": "10.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1"
