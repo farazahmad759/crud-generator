@@ -1,0 +1,28 @@
+{
+  "tableName": "users",
+  "sections": [
+    {
+      "id": 0,
+      "title": "Section 1"
+    }
+  ],
+  "fields": [
+    {
+      "title": "name",
+      "type": "string",
+      "notNullable": "true",
+      "section": 0
+    },
+    {
+      "title": "email",
+      "type": "string",
+      "notNullable": "false",
+      "section": 0
+    },
+    {
+      "title": "uid",
+      "type": "number",
+      "section": 0
+    }
+  ]
+}

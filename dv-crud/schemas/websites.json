@@ -1,0 +1,23 @@
+{
+  "tableName": "websites",
+  "sections": [
+    {
+      "id": 0,
+      "title": "Section 1"
+    }
+  ],
+  "fields": [
+    {
+      "title": "_url",
+      "type": "string",
+      "notNullable": "true",
+      "section": 0
+    },
+    {
+      "title": "_status",
+      "type": "string",
+      "notNullable": "false",
+      "section": 0
+    }
+  ]
+}
