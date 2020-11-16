@@ -1,4 +1,5 @@
 import fs from 'fs';
+import dvCrudConfig from './../dvcrud.config.js';
 /**
  * createFile(object)
  */
@@ -27,14 +28,21 @@ const createFile = (params) => {
   if (!extension) {
     extension = '.js';
   }
+  if (type === 'migration') {
+    dir = dvCrudConfig.migrations_path;
+  } else if (type === 'controller') {
+    dir = dvCrudConfig.controllers_path;
+  } else if (type === 'model') {
+    dir = dvCrudConfig.models_path;
+  } else if (type === 'view') {
+    dir = dvCrudConfig.views_path;
+  }
 
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
   }
   let formattedName = '';
-  if (type === 'migration') {
-  }
-  formattedName += preName + '_' + name + '_' + postName + extension;
+  formattedName += preName + '_' + name + '_' + postName;
   formattedName = formattedName.replace('__', '_');
   formattedName = formattedName.replace('__', '_');
   formattedName = formattedName.replace('__', '_');
@@ -42,6 +50,10 @@ const createFile = (params) => {
   if (formattedName.charAt(0) === '_') {
     formattedName = formattedName.substring(1);
   }
+  if (formattedName.charAt(formattedName.length - 1) === '_') {
+    formattedName = formattedName.slice(0, -1);
+  }
+  formattedName += extension;
   fs.writeFile(dir + formattedName, content, function (err) {
     if (err) {
       console.log(err);

@@ -2,8 +2,8 @@ import { generateFile, generateContent } from './migration-functions.js';
 import fs from 'fs';
 import dvFunctions from './functions.js';
 import dvMigrations from './migrations/migrations.js';
+import dvApis from './apis/apis.js';
 let usersJson = dvFunctions.readSchema({ name: 'users.json' });
-console.log(usersJson);
 let usersMigration = dvMigrations.buildContent({ jsonData: usersJson });
 dvFunctions.createFile({
   name: 'users',
@@ -11,7 +11,21 @@ dvFunctions.createFile({
   dir: 'db/migrations/',
   preName: new Date().getTime() + '_create_table',
   postName: '',
+  content: usersMigration,
 });
+let userApi = dvApis.buildContent({ jsonData: usersJson });
+dvFunctions.createFile({
+  name: 'index',
+  type: 'api',
+  dir: 'db/controllers/',
+  preName: '',
+  postName: '',
+  content: userApi,
+});
+
+/**
+ *
+ */
 // const schemaDirectory = 'dv-crud/schemas';
 
 // fs.readdirSync(schemaDirectory).forEach((file) => {
