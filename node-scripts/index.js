@@ -2,8 +2,8 @@ import fs from 'fs';
 import dvFunctions from './functions.js';
 import dvMigrations from './migrations/migrations.js';
 import dvApis from './apis/apis.js';
-let usersJson = dvFunctions.readSchema({ name: 'users.json' });
-let usersMigration = dvMigrations.buildContent({ jsonData: usersJson });
+let usersSchema = dvFunctions.readSchema({ name: 'users.json' });
+let usersMigration = dvMigrations.buildContent({ jsonData: usersSchema });
 dvFunctions.createFile({
   name: 'users',
   type: 'migration',
@@ -13,7 +13,7 @@ dvFunctions.createFile({
   postName: '',
   content: usersMigration,
 });
-let userApi = dvApis.buildContent({ jsonData: usersJson });
+let userApi = dvApis.buildContent({ jsonData: usersSchema });
 Object.keys(userApi).map((key) => {
   dvFunctions.createFile({
     name: key,
@@ -22,7 +22,7 @@ Object.keys(userApi).map((key) => {
     preName: '',
     postName: '',
     content: userApi[key],
-    // _jsonData: usersJson,
+    _jsonData: usersSchema,
   });
 });
 
