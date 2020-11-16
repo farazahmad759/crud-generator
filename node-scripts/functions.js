@@ -96,6 +96,12 @@ const readSchema = (params) => {
   let jsonData = JSON.parse(rawdata);
   return jsonData;
 };
+
+/**
+ * TODO - create import path for knex file
+ */
+const getImportPath = () => {};
+
 let dvFunctions = { createFile, readSchema };
 
 export default dvFunctions;

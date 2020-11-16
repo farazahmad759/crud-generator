@@ -7,7 +7,7 @@
    */
   handler.post(async (req, res) => {
     let data = req.body;
-    let resCategories = await knex('users').insert({
+    let resCategories = await knex('websites').insert({
       ...req.body,
     });
     res.json({
@@ -19,13 +19,13 @@
    * @description get records from database
    */
   handler.get(async (req, res) => {
-    let resCategories = knex.select().from('users')
-    if(req.query['name']) {
-      resCategories = resCategories.where('name', 'like', '%' + req.query['name'] + '%');
+    let resCategories = knex.select().from('websites')
+    if(req.query['_url']) {
+      resCategories = resCategories.where('_url', 'like', '%' + req.query['_url'] + '%');
     }
     
-    if(req.query['email']) {
-      resCategories = resCategories.where('email', 'like', '%' + req.query['email'] + '%');
+    if(req.query['_status']) {
+      resCategories = resCategories.where('_status', 'like', '%' + req.query['_status'] + '%');
     }
     
   resCategories = await resCategories;
