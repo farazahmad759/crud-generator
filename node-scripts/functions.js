@@ -30,7 +30,7 @@ const createFile = (params) => {
   }
   if (type === 'migration') {
     dir = dvCrudConfig.migrations_path;
-  } else if (type === 'controller') {
+  } else if (type === 'controller' || type === 'api') {
     dir = dvCrudConfig.controllers_path;
   } else if (type === 'model') {
     dir = dvCrudConfig.models_path;
