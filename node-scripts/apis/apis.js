@@ -32,7 +32,18 @@ const buildContent = (params) => {
    * @description get records from database
    */
   handler.get(async (req, res) => {
-    let resCategories = await knex.select().from('${jsonData.tableName}');
+    let resCategories = knex.select().from('${jsonData.tableName}')`;
+  jsonData.fields.forEach((item, i) => {
+    c_get_index += `
+    if(req.query['${item.title}']) {
+      resCategories = resCategories.where('${item.title}', 'like', '%' + req.query['${item.title}'] + '%');
+    }
+    `;
+  });
+  c_get_index += `
+  resCategories = await resCategories;
+  `;
+  c_get_index += `
     res.json({ message: 'Following record(s) have been found', data: resCategories });
   });`;
   let c_return_index = c_imports + c_post_index + c_get_index + c_exports;
