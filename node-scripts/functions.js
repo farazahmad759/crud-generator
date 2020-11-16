@@ -13,6 +13,7 @@ const createFile = (params) => {
     preName,
     postName,
     extension,
+    _jsonData,
   } = params;
   if (!name) {
     console.error('params.name is required');
@@ -43,7 +44,11 @@ const createFile = (params) => {
   if (type === 'migration') {
     dir = dvCrudConfig.migrations_path;
   } else if (type === 'controller' || type === 'api') {
-    dir = dvCrudConfig.controllers_path;
+    if (!_jsonData) {
+      console.error('_jsonData is required for controllers/apis');
+    } else {
+      dir = dvCrudConfig.controllers_path + _jsonData.tableName + '/';
+    }
   } else if (type === 'model') {
     dir = dvCrudConfig.models_path;
   } else if (type === 'view') {

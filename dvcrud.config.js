@@ -5,7 +5,7 @@ let dvCrudConfig = {
   schemas_path: 'db/schemas/',
   migrations_path: 'db/migrations/',
   models_path: 'db/models/',
-  controllers_path: 'pages/api/users/', // controller/api files
+  controllers_path: 'pages/api/', // controller/api files
   views_path: 'db/views/', // frontend files
 };
 module.exports = dvCrudConfig;
