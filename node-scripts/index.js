@@ -8,7 +8,7 @@ fs.readdirSync(schemaDirectory).forEach((file) => {
   let jsonSchema = dvFunctions.readSchema({ name: file });
   let usersMigration = dvMigrations.buildContent({ jsonData: jsonSchema });
   dvFunctions.createFile({
-    name: 'users',
+    name: jsonSchema.tableName,
     type: 'migration',
     dir: 'db/migrations/',
     timeStamp: new Date().getTime(),

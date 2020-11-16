@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "mig-up": "knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up",
-    "mig-down": "knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down"
+    "mig-up": "knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up && knex migrate:up",
+    "mig-down": "knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down && knex migrate:down"
   },
   "dependencies": {
     "knex": "^0.21.12",
