@@ -18,11 +18,6 @@
       "type": "string",
       "notNullable": "false",
       "section": 0
-    },
-    {
-      "title": "uid",
-      "type": "number",
-      "section": 0
     }
   ]
 }
