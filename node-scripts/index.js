@@ -14,13 +14,15 @@ dvFunctions.createFile({
   content: usersMigration,
 });
 let userApi = dvApis.buildContent({ jsonData: usersJson });
-dvFunctions.createFile({
-  name: 'index',
-  type: 'api',
-  dir: 'db/controllers/',
-  preName: '',
-  postName: '',
-  content: userApi,
+Object.keys(userApi).map((key) => {
+  dvFunctions.createFile({
+    name: key,
+    type: 'api',
+    dir: 'db/controllers/',
+    preName: '',
+    postName: '',
+    content: userApi[key],
+  });
 });
 
 /**
