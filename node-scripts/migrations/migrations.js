@@ -20,7 +20,7 @@ export function buildContent(params) {
   };
   `;
   let c_return = c_up + c_down;
-  console.log(c_return);
+  // console.log(c_return);
   return c_return;
 }
 

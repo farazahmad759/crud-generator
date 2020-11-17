@@ -7,5 +7,6 @@ let dvCrudConfig = {
   models_path: 'db/models/',
   controllers_path: 'pages/api/', // controller/api files
   views_path: 'db/views/', // frontend files
+  knexfile_path: 'knexfile.js/',
 };
 module.exports = dvCrudConfig;

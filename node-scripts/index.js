@@ -3,7 +3,6 @@ import dvFunctions from './functions.js';
 import dvMigrations from './migrations/migrations.js';
 import dvApis from './apis/apis.js';
 const schemaDirectory = 'db/schemas';
-
 fs.readdirSync(schemaDirectory).forEach((file) => {
   let jsonSchema = dvFunctions.readSchema({ name: file });
   let usersMigration = dvMigrations.buildContent({ jsonData: jsonSchema });

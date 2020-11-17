@@ -1,16 +1,23 @@
 import fs from 'fs';
+import dvCrudConfig from './../../dvcrud.config.js';
+import dvFunctions from './../functions.js';
+const apiStructure = (params) => {
+  let { jsonData } = params;
+  let relativePath = dvFunctions.getRelativePath(
+    dvCrudConfig.controllers_path + `/${jsonData.tableName}/dummy`,
+    dvCrudConfig.knexfile_path
+  );
 
-const apiStructure = () => {
   let c_imports = `
   import nextConnect from 'next-connect';
-  import { knex } from '../../../knexfile';
+  import { knex } from '${relativePath}knexfile';
   const handler = nextConnect();`;
   let c_exports = `export default handler;`;
   return { c_imports, c_exports };
 };
 const buildContent = (params) => {
   let { jsonData } = params;
-  let { c_imports, c_exports } = apiStructure();
+  let { c_imports, c_exports } = apiStructure(params);
 
   // index.js
   let c_post_index = `

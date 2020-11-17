@@ -1,5 +1,7 @@
 import fs from 'fs';
 import dvCrudConfig from './../dvcrud.config.js';
+import path from 'path';
+
 /**
  * createFile(object)
  */
@@ -102,6 +104,23 @@ const readSchema = (params) => {
  */
 const getImportPath = () => {};
 
-let dvFunctions = { createFile, readSchema };
+/**
+ * getRelativePath(referencePath, otherPath)
+ * @description construct relative path
+ */
+
+const getRelativePath = (referencePath, otherPath) => {
+  let relativePath = path.relative(
+    path.dirname(referencePath),
+    path.dirname(otherPath)
+  );
+  while (relativePath.includes('\\')) {
+    relativePath = relativePath.replace('\\', '/');
+  }
+  relativePath += '/';
+  console.log('==================', relativePath); //'../../img'
+  return relativePath;
+};
+let dvFunctions = { createFile, readSchema, getRelativePath };
 
 export default dvFunctions;
